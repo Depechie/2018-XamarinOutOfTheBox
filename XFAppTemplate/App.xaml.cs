@@ -28,6 +28,7 @@ namespace XFAppTemplate
 			containerRegistry.RegisterForNavigation<NavigationPage>();
 			containerRegistry.RegisterForNavigation<MasterDetailShellPage, MasterDetailShellViewModel>();
 			containerRegistry.RegisterForNavigation<MenuPage>();
+			containerRegistry.RegisterForNavigation<BasePage>();
 			containerRegistry.RegisterForNavigation<MainPage, MainViewModel>();
 		}
 	}
