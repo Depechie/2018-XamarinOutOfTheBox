@@ -1,32 +1,32 @@
-using System;
+using Prism;
+using Prism.Ioc;
+using Prism.Unity;
+using Unity;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using XFAppTemplate.ViewModels;
+using XFAppTemplate.Views;
 
 [assembly: XamlCompilation(XamlCompilationOptions.Compile)]
 namespace XFAppTemplate
 {
-    public partial class App : Application
+    public partial class App : PrismApplication
     {
-        public App()
-        {
-            InitializeComponent();
+		public App(IPlatformInitializer initializer = null) : base(initializer)
+		{
+		}
 
-            MainPage = new MainPage();
-        }
+		protected override void OnInitialized()
+		{
+			InitializeComponent();
 
-        protected override void OnStart()
-        {
-            // Handle when your app starts
-        }
+			NavigationService.NavigateAsync("/NavigationPage/MainPage");
+		}
 
-        protected override void OnSleep()
-        {
-            // Handle when your app sleeps
-        }
-
-        protected override void OnResume()
-        {
-            // Handle when your app resumes
-        }
-    }
+		protected override void RegisterTypes(IContainerRegistry containerRegistry)
+		{
+			containerRegistry.RegisterForNavigation<NavigationPage>();
+			containerRegistry.RegisterForNavigation<MainPage, MainViewModel>();
+		}
+	}
 }
