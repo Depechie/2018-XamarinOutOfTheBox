@@ -15,4 +15,7 @@
     <Folder Include="Views\" />
     <Folder Include="ViewModels\" />
   </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="Views\MasterDetailPage.xaml.cs" />
+  </ItemGroup>
 </Project>
