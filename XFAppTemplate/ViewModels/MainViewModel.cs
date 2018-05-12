@@ -8,16 +8,13 @@ namespace XFAppTemplate.ViewModels
 	public class MainViewModel : ViewModelBase
     {		
 		private DelegateCommand _nonModalCommand;
-		public DelegateCommand NonModalCommand
-        {
-			get => _nonModalCommand ?? (_nonModalCommand = new DelegateCommand(async () => await NavigationService.NavigateAsync("NonModalSubPage")));
-        }
+		public DelegateCommand NonModalCommand => _nonModalCommand ?? (_nonModalCommand = new DelegateCommand(async () => await NavigationService.NavigateAsync("NonModalSubPage")));
 
 		private DelegateCommand _modalCommand;
-        public DelegateCommand ModalCommand
-        {
-			get => _modalCommand ?? (_modalCommand = new DelegateCommand(async () => await NavigationService.NavigateAsync("ModalSubPage", useModalNavigation: true)));
-        }
+		public DelegateCommand ModalCommand => _modalCommand ?? (_modalCommand = new DelegateCommand(async () => await NavigationService.NavigateAsync("ModalSubPage", useModalNavigation: true)));
+
+		private DelegateCommand _fabCommand;
+        public DelegateCommand FabCommand => _fabCommand ?? (_fabCommand = new DelegateCommand(() => IsFabButtonVisible = !IsFabButtonVisible));
 
 		public MainViewModel(INavigationService navigationService, IEventAggregator eventAggregator)
 			: base(navigationService, eventAggregator)

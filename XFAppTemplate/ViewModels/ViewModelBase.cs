@@ -21,23 +21,21 @@ namespace XFAppTemplate.ViewModels
             set => SetProperty(ref _pageMode, value);
         }
 
-		private DelegateCommand _hamburgerCommand;
-        public DelegateCommand HamburgerCommand
+		private bool _isFabButtonVisible = false;
+        public bool IsFabButtonVisible
         {
-            get => _hamburgerCommand ?? (_hamburgerCommand = new DelegateCommand(() => EventAggregator.GetEvent<HamburgerMenuEvent>().Publish()));
+            get => _isFabButtonVisible;
+            set => SetProperty(ref _isFabButtonVisible, value);
         }
+
+		private DelegateCommand _hamburgerCommand;
+		public DelegateCommand HamburgerCommand => _hamburgerCommand ?? (_hamburgerCommand = new DelegateCommand(() => EventAggregator.GetEvent<HamburgerMenuEvent>().Publish()));
 
 		private DelegateCommand _navigateBackCommand;
-        public DelegateCommand NavigateBackCommand
-        {
-			get => _navigateBackCommand ?? (_navigateBackCommand = new DelegateCommand(async () => await NavigationService.GoBackAsync()));
-        }
+		public DelegateCommand NavigateBackCommand => _navigateBackCommand ?? (_navigateBackCommand = new DelegateCommand(async () => await NavigationService.GoBackAsync()));
 
 		private DelegateCommand _closeCommand;
-        public DelegateCommand CloseCommand
-        {
-			get => _closeCommand ?? (_closeCommand = new DelegateCommand(async () => await NavigationService.GoBackAsync(useModalNavigation: PageMode == PageMode.Modal)));
-        }
+		public DelegateCommand CloseCommand => _closeCommand ?? (_closeCommand = new DelegateCommand(async () => await NavigationService.GoBackAsync(useModalNavigation: PageMode == PageMode.Modal)));
 
 		public ViewModelBase(INavigationService navigationService, IEventAggregator eventAggregator)
         {
