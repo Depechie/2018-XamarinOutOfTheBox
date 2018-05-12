@@ -23,6 +23,12 @@
                     <ColumnDefinition Width="50" />
                 </Grid.ColumnDefinitions>
 
+                <Button x:Name="PageHamburgerButton"
+                        Text="&#xF414;"
+                        Command="{Binding HamburgerCommand}"
+                        Style="{StaticResource MaterialButton}"
+                        Grid.Column="0" />
+
                 <Label x:Name="TitleLabel"
                        TextColor="White"
                        VerticalOptions="FillAndExpand" HorizontalOptions="Center" VerticalTextAlignment="Center"
