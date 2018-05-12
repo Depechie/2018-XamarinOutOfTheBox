@@ -33,6 +33,12 @@ namespace XFAppTemplate.ViewModels
 			get => _navigateBackCommand ?? (_navigateBackCommand = new DelegateCommand(async () => await NavigationService.GoBackAsync()));
         }
 
+		private DelegateCommand _closeCommand;
+        public DelegateCommand CloseCommand
+        {
+			get => _closeCommand ?? (_closeCommand = new DelegateCommand(async () => await NavigationService.GoBackAsync(useModalNavigation: PageMode == PageMode.Modal)));
+        }
+
 		public ViewModelBase(INavigationService navigationService, IEventAggregator eventAggregator)
         {
 			NavigationService = navigationService;

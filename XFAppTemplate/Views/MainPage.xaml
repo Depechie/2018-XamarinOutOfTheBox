@@ -11,6 +11,7 @@
         <StackLayout HorizontalOptions="Center" VerticalOptions="CenterAndExpand">
             <Label Text="Welcome to Xamarin.Forms!" />
             <Button Text="Navigate to non modal sub page" Command="{Binding NonModalCommand}" />
+            <Button Text="Navigate to modal sub page" Command="{Binding ModalCommand}" />
         </StackLayout>
     </views:BasePage.BasePageContent>
             

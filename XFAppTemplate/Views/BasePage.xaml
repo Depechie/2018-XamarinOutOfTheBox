@@ -11,7 +11,7 @@
               VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
             <Grid.RowDefinitions>
                 <RowDefinition x:Name="StatusRowDefinition" Height="0" />
-                <RowDefinition Height="40" />
+                <RowDefinition Height="Auto" />
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
 
@@ -38,9 +38,17 @@
                         Grid.Column="0" />
                 <!--  Text="&#xF144;" -->
 
+                <Button x:Name="CloseButton"
+                        Text="&#xF22B;"
+                        Command="{Binding CloseCommand}"
+                        Style="{StaticResource MaterialButton}"
+                        Grid.Column="0" />
+
                 <Label x:Name="TitleLabel"
                        TextColor="White"
                        VerticalOptions="FillAndExpand" HorizontalOptions="Center" VerticalTextAlignment="Center"
+                       HorizontalTextAlignment="Center"
+                       LineBreakMode="WordWrap"
                        Grid.Column="1" />
             </Grid>
 

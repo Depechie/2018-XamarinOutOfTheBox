@@ -13,6 +13,12 @@ namespace XFAppTemplate.ViewModels
 			get => _nonModalCommand ?? (_nonModalCommand = new DelegateCommand(async () => await NavigationService.NavigateAsync("NonModalSubPage")));
         }
 
+		private DelegateCommand _modalCommand;
+        public DelegateCommand ModalCommand
+        {
+			get => _modalCommand ?? (_modalCommand = new DelegateCommand(async () => await NavigationService.NavigateAsync("ModalSubPage", useModalNavigation: true)));
+        }
+
 		public MainViewModel(INavigationService navigationService, IEventAggregator eventAggregator)
 			: base(navigationService, eventAggregator)
         {
