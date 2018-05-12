@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using Xamarin.Forms;
+using XFAppTemplate.Framework;
 
 namespace XFAppTemplate.Views
 {
@@ -29,6 +30,9 @@ namespace XFAppTemplate.Views
 
             //Hide the Xamarin Forms build in navigation header
 			NavigationPage.SetHasNavigationBar(this, false);
+
+            //Fix top page marging requirement depending on the current device running the app
+			StatusRowDefinition.Height = DependencyService.Get<IDeviceInfo>().StatusbarHeight;
         }
     }
 }
