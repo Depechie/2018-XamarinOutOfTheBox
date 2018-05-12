@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             prism:ViewModelLocator.AutowireViewModel="True"
              x:Class="XFAppTemplate.Views.BasePage">
     
     <ContentPage.Content>
@@ -23,11 +25,18 @@
                     <ColumnDefinition Width="50" />
                 </Grid.ColumnDefinitions>
 
-                <Button x:Name="PageHamburgerButton"
+                <Button x:Name="HamburgerButton"
                         Text="&#xF414;"
                         Command="{Binding HamburgerCommand}"
                         Style="{StaticResource MaterialButton}"
                         Grid.Column="0" />
+
+                <Button x:Name="NavigateBackButton"
+                        Text="&#xF21A;"
+                        Command="{Binding NavigateBackCommand}"
+                        Style="{StaticResource MaterialButton}"
+                        Grid.Column="0" />
+                <!--  Text="&#xF144;" -->
 
                 <Label x:Name="TitleLabel"
                        TextColor="White"

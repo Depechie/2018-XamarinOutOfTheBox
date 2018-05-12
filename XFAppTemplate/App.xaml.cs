@@ -30,6 +30,7 @@ namespace XFAppTemplate
 			containerRegistry.RegisterForNavigation<MenuPage>();
 			containerRegistry.RegisterForNavigation<BasePage>();
 			containerRegistry.RegisterForNavigation<MainPage, MainViewModel>();
+			containerRegistry.RegisterForNavigation<NonModalSubPage, NonModalSubViewModel>();
 		}
 	}
 }

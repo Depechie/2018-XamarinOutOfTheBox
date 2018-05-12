@@ -16,6 +16,7 @@
     <Folder Include="ViewModels\" />
     <Folder Include="Framework\" />
     <Folder Include="Events\" />
+    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Remove="Views\MasterDetailPage.xaml.cs" />

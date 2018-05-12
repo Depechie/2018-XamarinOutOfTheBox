@@ -4,12 +4,14 @@
                 xmlns:views="clr-namespace:XFAppTemplate.Views"
                 xmlns:local="clr-namespace:XFAppTemplate"
                 x:Class="XFAppTemplate.Views.MainPage"
-                BasePageTitle="Main page">
+                BasePageTitle="Main page"
+                PageMode="Menu">
 
     <views:BasePage.BasePageContent>
-    <StackLayout>
-        <Label Text="Welcome to Xamarin.Forms!" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" />
-    </StackLayout>
+        <StackLayout HorizontalOptions="Center" VerticalOptions="CenterAndExpand">
+            <Label Text="Welcome to Xamarin.Forms!" />
+            <Button Text="Navigate to non modal sub page" Command="{Binding NonModalCommand}" />
+        </StackLayout>
     </views:BasePage.BasePageContent>
             
 </views:BasePage>
