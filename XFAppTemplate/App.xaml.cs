@@ -4,6 +4,8 @@ using Prism.Unity;
 using Unity;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using XFAppTemplate.Services;
+using XFAppTemplate.Services.Interfaces;
 using XFAppTemplate.ViewModels;
 using XFAppTemplate.Views;
 
@@ -25,6 +27,8 @@ namespace XFAppTemplate
 
 		protected override void RegisterTypes(IContainerRegistry containerRegistry)
 		{
+			containerRegistry.Register<IPopupService, PopupService>();
+
 			containerRegistry.RegisterForNavigation<NavigationPage>();
 			containerRegistry.RegisterForNavigation<MasterDetailShellPage, MasterDetailShellViewModel>();
 			containerRegistry.RegisterForNavigation<MenuPage>();

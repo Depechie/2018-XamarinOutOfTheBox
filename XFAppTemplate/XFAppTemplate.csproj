@@ -18,6 +18,8 @@
     <Folder Include="Events\" />
     <Folder Include="Models\" />
     <Folder Include="Controls\" />
+    <Folder Include="Services\" />
+    <Folder Include="Services\Interfaces\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Remove="Views\MasterDetailPage.xaml.cs" />
