@@ -6,6 +6,7 @@ using Xamarin.Forms;
 using XFAppTemplate.Events;
 using XFAppTemplate.Framework;
 using XFAppTemplate.Models;
+using XFAppTemplate.Services.Interfaces;
 using XFAppTemplate.ViewModels;
 
 namespace XFAppTemplate.Views
@@ -16,6 +17,7 @@ namespace XFAppTemplate.Views
 
 		protected IUnityContainer Container { get; }
 		protected IEventAggregator EventAggregator { get; }
+        protected IPopupService PopupService { get; }
 
 		#region Bindable properties
 		public static readonly BindableProperty BasePageTitleProperty =
@@ -65,6 +67,7 @@ namespace XFAppTemplate.Views
 			Container = ((PrismApplication)Application.Current).Container.GetContainer();
             EventAggregator = Container.Resolve<IEventAggregator>();
             EventAggregator.GetEvent<HamburgerMenuEvent>().Subscribe(HandleHamburgerMenu);
+            PopupService = Container.Resolve<IPopupService>();
         }
 
 		private void HandleHamburgerMenu()
@@ -115,5 +118,10 @@ namespace XFAppTemplate.Views
 		{
 			HandleHamburgerMenuGesture(PageMode == PageMode.Menu);
 		}
-	}
+
+        protected override bool OnBackButtonPressed()
+        {
+            return PopupService.Dismiss();
+        }
+    }
 }
